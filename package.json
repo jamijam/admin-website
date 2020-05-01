@@ -10,7 +10,9 @@
     "start": "next build && next start",
     "cname": "echo 'admin.opencerts.io' > out/CNAME",
     "deploy": "yarn deploy:prebuilt && gh-pages --dotfiles --dist out",
-    "deploy:prebuilt": "rm -rf out && yarn build:static && touch out/.nojekyll && yarn cname"
+    "deploy:prebuilt": "rm -rf out && yarn build:static && touch out/.nojekyll && yarn cname",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "@ledgerhq/hw-transport-u2f": "^4.21.0",
@@ -29,7 +31,8 @@
     "redux-saga": "^0.16.0",
     "truffle-contract": "^3.0.4",
     "web3": "^1.0.0-beta.33",
-    "web3-provider-engine": "14.0.6"
+    "web3-provider-engine": "14.0.6",
+    "snyk": "^1.316.1"
   },
   "license": "ISC",
   "devDependencies": {
@@ -44,5 +47,6 @@
     "gh-pages": "^1.1.0",
     "prettier": "^1.10.2",
     "webpack": "^4.0.1"
-  }
+  },
+  "snyk": true
 }
